@@ -12,10 +12,8 @@ import sys
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
  
 # The ID and range of a sample spreadsheet.
-SPREADSHEET_ID = '1Pg30XVEQtW2dkhtmCR2uIJW8CfJhPzyvEJ1KO110CTM'
-RANGE_NAME = 'top_3000_south_korea_traffic_new!A:A'
+SPREADSHEET_ID = '16XngdfajuFrCzi_fIUr6kyNiRRfVM_aVQfIKk38G4Oc'
 service = None
-
 def getSheetList():
     global service
     if(service is None):
@@ -59,24 +57,32 @@ def getSheetService():
     service = build('sheets', 'v4', credentials=creds)
     return service
 
+
+def readSheet(sheetName):
+    #service = getSheetService()
+    #Call the Sheets API
+    rangeName= sheetName= "!A:Z"
+
+    sheet = service.spreadsheets()
+    result = sheet.values().get(spreadsheetId=SPREADSHEET_ID, range=rangeName).execute()
+    values = result.get('values', [])
+
+    if not values:
+        print('No data found.')
+    else:
+        for row in values:
+            # Print columns A to Z, which correspond to indices 0 to 25.
+            for x in range(25):
+                try:
+                    print(row[x])
+                except IndexError:
+                    break
+
 def main():
     global service
-    getSheetList()
-    
-    #service = getSheetService()
-    # Call the Sheets API
-    # sheet = service.spreadsheets()
-    # result = sheet.values().get(spreadsheetId=SPREADSHEET_ID, range=RANGE_NAME).execute()
-    # values = result.get('values', [])
-
-    # if not values:
-    #     print('No data found.')
-    # else:
-    #     print('Name, Major:')
-    #     for row in values:
-    #         # Print columns A and E, which correspond to indices 0 and 4.
-    #         #print('%s, %s' % (row[0], row[4]))
-    #         print(row[0])
+    arrSheet= getSheetList()
+    for sheet in arrSheet:
+        readSheet(sheet)
 
 if __name__ == '__main__':
     main()
