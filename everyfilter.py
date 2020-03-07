@@ -122,7 +122,7 @@ def saveTXT(target):
 
 def openTXT():
     arrLines= []
-    with open("C:\name\MyDocuments\numbers") as file:
+    with open('dump.filters') as file:
         for line in file:
             line = line.strip() #preprocess line
             arrLines.append(line)
