@@ -1,6 +1,7 @@
 from __future__ import print_function
 import tldextract # pip install tldextract
 import pickle
+import os
 from os import path
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -18,14 +19,14 @@ import time
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
 # The ID and range of a sample spreadsheet.
-SPREADSHEET_ID = '16XngdfajuFrCzi_fIUr6kyNiRRfVM_aVQfIKk38G4Oc'
+#SPREADSHEET_ID = '16XngdfajuFrCzi_fIUr6kyNiRRfVM_aVQfIKk38G4Oc'
 service = None
-def getSheetList():
+def getSheetList(sheetURL):
     global service
     if(service is None):
         service= getSheetService()
         
-    sheet_metadata = service.spreadsheets().get(spreadsheetId=SPREADSHEET_ID).execute()
+    sheet_metadata = service.spreadsheets().get(spreadsheetId=sheetURL).execute()
 
     #sheet_id = None
     sheetList = []
@@ -64,16 +65,18 @@ def getSheetService():
     return service
 
 
-def readSheet(sheetName):
+def readSheet(sheetURL, sheetName):
     global service
     #Call the Sheets API
-    rangeName= sheetName= "!A:Z"
+    rangeName= sheetName+ "!A:Z"
 
     if service is None:
         service = getSheetService()
 
+    arrSource= []
+
     sheet = service.spreadsheets()
-    result = sheet.values().get(spreadsheetId=SPREADSHEET_ID, range=rangeName).execute()
+    result = sheet.values().get(spreadsheetId=sheetURL, range=rangeName).execute()
     values = result.get('values', [])
 
     if not values:
@@ -83,13 +86,19 @@ def readSheet(sheetName):
             # Print columns A to Z, which correspond to indices 0 to 25.
             for x in range(25):
                 try:
-                    print(row[x])
+                    FilteredDomain = ValidateDomain(row[x])
+                    if FilteredDomain is not None:
+                        arrSource.append(FilteredDomain)
                 except IndexError:
-                    break
+                    continue
+    return arrSource
 
 
 def ValidateDomain(url):
     filter= ""
+    if url.startswith('!') == True:
+        return None
+        
     delimeter_location= url.find('$')
     if delimeter_location is not -1:
         filter= url[:url.find('$')]
@@ -147,12 +156,22 @@ def main():
 
     list_all = []
     start_time = time.time()
-    if path.exists("dump.filters"):
-        opened= openTXT()
-        print(opened)
-    else:
-        arr_source= readSourceFromABPFilters("https://easylist-downloads.adblockplus.org/easylist.txt")
-        list_all.extend(arr_source)
+    # if path.exists("dump.filters"):
+    #     opened= openTXT()
+    #     print(opened)
+    # else:
+    arr_source = readSourceFromABPFilters("https://easylist-downloads.adblockplus.org/koreanlist+easylist.txt")
+    list_all.append("! [koreanlist+easylist.txt]")
+    list_all.extend(arr_source)
+
+    #readSheet("16XngdfajuFrCzi_fIUr6kyNiRRfVM_aVQfIKk38G4Oc", "")
+    arrSheet= getSheetList("18epO6j4tKn0fsh8zYUSWHO0u_7Q3eRF2K3DT-Z7Quhg")
+    print(arrSheet)
+    for sheet in arrSheet:
+        list_all.append("! [" + sheet + " of 18epO6j4tKn0fsh8zYUSWHO0u_7Q3eRF2K3DT-Z7Quhg]")
+        arr_source2 = readSheet("18epO6j4tKn0fsh8zYUSWHO0u_7Q3eRF2K3DT-Z7Quhg", sheet)
+        list_all.extend(arr_source2)
+        
 
         list_all_disticted = list(set(list_all))
         saveTXT(list_all_disticted)
