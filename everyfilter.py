@@ -100,13 +100,23 @@ def ValidateDomain(url):
     if url.startswith('!') == True:
         return None
         
+    # blocking filter
     delimeter_location= url.find('$')
     if delimeter_location is not -1:
-        filter= filter[:url.find('$')]
+        filter= filter[:delimeter_location]
+
+    # hiding filter
+    delimeter_location= url.find('##')
+    if delimeter_location is not -1:
+        filter= filter[:delimeter_location]
+
     filter= filter.replace('#', '').replace('|', '').replace('^', '')
     ext = tldextract.extract(filter)
 
     ret= None
+    if ext.domain.find(' ') != -1:
+        return None
+
     if ext.domain.strip() != '' and ext.suffix.strip() != '':
         if ext.subdomain.strip() == '':
             ret = (ext.domain +'.'+ ext.suffix)
@@ -157,7 +167,7 @@ def AddSource(source):
     print("Updating latest filters from " + source + "...")
     if "adblockplus.org/" in source:
         arr_source.append("! [" + source + "]")
-        arr_source= readSourceFromABPFilters(source)
+        arr_source.extend(readSourceFromABPFilters(source))
     elif "docs.google.com/spreadsheets" in source:
         splited= source.split('/')
         target_gid= None
