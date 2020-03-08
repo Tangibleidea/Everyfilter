@@ -88,23 +88,37 @@ def readSheet(sheetName):
                     break
 
 
+def ValidateDomain(url):
+    filter= ""
+    delimeter_location= url.find('$')
+    if delimeter_location is not -1:
+        filter= url[:url.find('$')]
+    filter= filter.replace('#', '').replace('|', '').replace('^', '')
+    ext = tldextract.extract(filter)
 
-def readSource3(url):
+    ret= None
+    if ext.domain.strip() != '' and ext.suffix.strip() != '':
+        if ext.subdomain.strip() == '':
+            ret = (ext.domain +'.'+ ext.suffix)
+        else:
+            ret = (ext.subdomain +'.'+ ext.domain +'.'+ ext.suffix)
+        if url.find('third-party') != -1:
+            ret += " (third-party)"
+        if url.find('domain') != -1:
+            ret += " (domain)"
+    return ret
+
+def readSourceFromABPFilters(url):
     arrSource= []   
     http = urllib3.PoolManager()
     response = http.request('GET', url)
     data = response.data.decode('utf-8')
     for line in data.splitlines():
-        arrSource.append(line)
+        FilteredDomain = ValidateDomain(line)
+        if FilteredDomain is not None:
+            arrSource.append(FilteredDomain)
     print('done')
     return arrSource
-
-def readSource1(url):
-    arrSource= []   
-    data = urlopen(url)
-    for source in data:
-        arrSource.append(source)
-    print('done')
 
 def savePickle(target):
     with open('dump.filters', 'wb') as f:
@@ -116,13 +130,13 @@ def openPickle():
     return data
 
 def saveTXT(target):
-    with open('dump.filters', 'w') as f:
+    with open('dump.filters', 'w', encoding='UTF-8', newline='') as f:
         for item in target:
             f.write("%s\n" % item)
 
 def openTXT():
     arrLines= []
-    with open('dump.filters') as file:
+    with open('dump.filters', encoding='UTF-8') as file:
         for line in file:
             line = line.strip() #preprocess line
             arrLines.append(line)
@@ -131,13 +145,15 @@ def openTXT():
 def main():
     global service
 
+    arrMain = []
     start_time = time.time()
     if path.exists("dump.filters"):
         opened= openTXT()
         print(opened)
     else:
-        arrSource= readSource3("https://easylist-downloads.adblockplus.org/easylist.txt")
-        saveTXT(arrSource)
+        arrSource= readSourceFromABPFilters("https://easylist-downloads.adblockplus.org/easylist.txt")
+        arrMain.extend(arrSource)
+        saveTXT(arrMain)
 
     print("--- %s seconds ---" % (time.time() - start_time))
     # if validators.domain('http://stackoverflow.com/a/30007882/697313'):
