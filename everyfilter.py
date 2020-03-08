@@ -1,4 +1,5 @@
 from __future__ import print_function
+from collections import OrderedDict
 import tldextract # pip install tldextract
 import pickle
 import os
@@ -18,8 +19,9 @@ import time
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
-# The ID and range of a sample spreadsheet.
-#SPREADSHEET_ID = '16XngdfajuFrCzi_fIUr6kyNiRRfVM_aVQfIKk38G4Oc'
+# How long the google spreadsheet id is.
+SPREADSHEET_ID_DIGIT = 44
+
 service = None
 def getSheetList(sheetURL):
     global service
@@ -28,13 +30,12 @@ def getSheetList(sheetURL):
         
     sheet_metadata = service.spreadsheets().get(spreadsheetId=sheetURL).execute()
 
-    #sheet_id = None
     sheetList = []
     properties = sheet_metadata.get('sheets')
     for  item in properties:
         #print(item)
         sheetName= item.get("properties").get('title')
-        print(sheetName)
+        #print(sheetName)
         sheetList.append(sheetName)
     return sheetList
 
@@ -95,13 +96,13 @@ def readSheet(sheetURL, sheetName):
 
 
 def ValidateDomain(url):
-    filter= ""
+    filter= url
     if url.startswith('!') == True:
         return None
         
     delimeter_location= url.find('$')
     if delimeter_location is not -1:
-        filter= url[:url.find('$')]
+        filter= filter[:url.find('$')]
     filter= filter.replace('#', '').replace('|', '').replace('^', '')
     ext = tldextract.extract(filter)
 
@@ -151,61 +152,41 @@ def openTXT():
             arrLines.append(line)
     return arrLines
 
+def AddSource(source):
+    arr_source = []
+    print("Updating latest filters from " + source + "...")
+    if "adblockplus.org/" in source:
+        arr_source.append("! [" + source + "]")
+        arr_source= readSourceFromABPFilters(source)
+    elif "docs.google.com/spreadsheets" in source:
+        splited= source.split('/')
+        target_gid= None
+        for x in splited:
+            if len(x) == SPREADSHEET_ID_DIGIT:
+                target_gid= x
+        if target_gid != None:
+            arrSheet = getSheetList(target_gid)
+            for sheet in arrSheet:
+                print("Sheet name: " + sheet + " of ID: " +target_gid)
+                arr_source.append("! [Sheet name: " + sheet + " of ID: " +target_gid + "]")
+                arr_source.extend(readSheet(target_gid, sheet))
+    return arr_source
+
+
 def main():
     global service
 
     list_all = []
     start_time = time.time()
-    # if path.exists("dump.filters"):
-    #     opened= openTXT()
-    #     print(opened)
-    # else:
-    arr_source = readSourceFromABPFilters("https://easylist-downloads.adblockplus.org/koreanlist+easylist.txt")
-    list_all.append("! [koreanlist+easylist.txt]")
-    list_all.extend(arr_source)
-
-    #readSheet("16XngdfajuFrCzi_fIUr6kyNiRRfVM_aVQfIKk38G4Oc", "")
-    arrSheet= getSheetList("18epO6j4tKn0fsh8zYUSWHO0u_7Q3eRF2K3DT-Z7Quhg")
-    print(arrSheet)
-    for sheet in arrSheet:
-        list_all.append("! [" + sheet + " of 18epO6j4tKn0fsh8zYUSWHO0u_7Q3eRF2K3DT-Z7Quhg]")
-        arr_source2 = readSheet("18epO6j4tKn0fsh8zYUSWHO0u_7Q3eRF2K3DT-Z7Quhg", sheet)
-        list_all.extend(arr_source2)
-        
-
-        list_all_disticted = list(set(list_all))
-        saveTXT(list_all_disticted)
+    
+    list_all.extend( AddSource("https://easylist-downloads.adblockplus.org/koreanlist+easylist.txt") )
+    list_all.extend( AddSource("https://docs.google.com/spreadsheets/d/18epO6j4tKn0fsh8zYUSWHO0u_7Q3eRF2K3DT-Z7Quhg") )
+    list_all.extend( AddSource("https://docs.google.com/spreadsheets/d/16XngdfajuFrCzi_fIUr6kyNiRRfVM_aVQfIKk38G4Oc") )
+            
+    list_all_disticted = list(OrderedDict.fromkeys(list_all))
+    saveTXT(list_all_disticted)
 
     print("--- %s seconds ---" % (time.time() - start_time))
-    # if validators.domain('http://stackoverflow.com/a/30007882/697313'):
-    #     print('this domain is valid')
-    # else:
-    #     print('this domain is not valid')
-
-    # pattern = r'https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+'
-    #test_string1 = 'https://stackoverflow.com/a/30007882/697313'
-    # test_string2 = '0.018321'
-    # extracted = tldextract.extract(test_string2)
-    # print(extracted)
-
-    # result1 = re.findall(pattern, test_string1)
-    # print(result1)
-    # result2 = re.findall(pattern, test_string2)
-    # print(result2)
-
-    # if result:
-    #     print("Search successful.")
-    # else:
-    #     print("Search unsuccessful.")	
-
-    # try:
-    #     service = getSheetService()
-    # except requests.exceptions.SSLError:
-    #     print("===SSLError===")
-
-    # arrSheet= getSheetList()
-    # for sheet in arrSheet:
-    #     readSheet(sheet)
 
     
     
