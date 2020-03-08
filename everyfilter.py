@@ -145,15 +145,17 @@ def openTXT():
 def main():
     global service
 
-    arrMain = []
+    list_all = []
     start_time = time.time()
     if path.exists("dump.filters"):
         opened= openTXT()
         print(opened)
     else:
-        arrSource= readSourceFromABPFilters("https://easylist-downloads.adblockplus.org/easylist.txt")
-        arrMain.extend(arrSource)
-        saveTXT(arrMain)
+        arr_source= readSourceFromABPFilters("https://easylist-downloads.adblockplus.org/easylist.txt")
+        list_all.extend(arr_source)
+
+        list_all_disticted = list(set(list_all))
+        saveTXT(list_all_disticted)
 
     print("--- %s seconds ---" % (time.time() - start_time))
     # if validators.domain('http://stackoverflow.com/a/30007882/697313'):
