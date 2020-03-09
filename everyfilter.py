@@ -97,9 +97,11 @@ def readSheet(sheetURL, sheetName):
 
 def ValidateDomain(url):
     filter= url
+    if url.strip() == '':
+        return None
     if url.startswith('!') == True:
         return None
-        
+
     # blocking filter
     delimeter_location= url.find('$')
     if delimeter_location is not -1:
@@ -134,6 +136,18 @@ def readSourceFromABPFilters(url):
     response = http.request('GET', url)
     data = response.data.decode('utf-8')
     for line in data.splitlines():
+    
+        # could have plural filters in 1 line.
+        delimeter= line.find(',')
+        option_marker= line.find('$')
+        is_comment = line.startswith('!')
+        if delimeter is not -1 and option_marker is -1 and not is_comment:   # if there is ',' + no '$'
+            multi_filters= line.split(',') # then split it by ','
+            for line_mf in multi_filters:  # and loop to validate every filter
+                FilteredDomain = ValidateDomain(line_mf)
+                if FilteredDomain is not None:
+                    arrSource.append(FilteredDomain)
+
         FilteredDomain = ValidateDomain(line)
         if FilteredDomain is not None:
             arrSource.append(FilteredDomain)
@@ -190,8 +204,8 @@ def main():
     start_time = time.time()
     
     list_all.extend( AddSource("https://easylist-downloads.adblockplus.org/koreanlist+easylist.txt") )
-    list_all.extend( AddSource("https://docs.google.com/spreadsheets/d/18epO6j4tKn0fsh8zYUSWHO0u_7Q3eRF2K3DT-Z7Quhg") )
-    list_all.extend( AddSource("https://docs.google.com/spreadsheets/d/16XngdfajuFrCzi_fIUr6kyNiRRfVM_aVQfIKk38G4Oc") )
+    #list_all.extend( AddSource("https://docs.google.com/spreadsheets/d/18epO6j4tKn0fsh8zYUSWHO0u_7Q3eRF2K3DT-Z7Quhg") )
+    #list_all.extend( AddSource("https://docs.google.com/spreadsheets/d/16XngdfajuFrCzi_fIUr6kyNiRRfVM_aVQfIKk38G4Oc") )
             
     list_all_disticted = list(OrderedDict.fromkeys(list_all))
     saveTXT(list_all_disticted)

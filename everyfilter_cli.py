@@ -45,8 +45,8 @@ def searchList(search_text):
 def updateList():
 	global SUBSCRIPTION_LIST
 	list_all = []
-	for list in SUBSCRIPTION_LIST:
-		list_all.extend( AddSource(list) )
+	for mylist in SUBSCRIPTION_LIST:
+		list_all.extend( AddSource(mylist) )
 
 	list_all_disticted = OrderedDict.fromkeys(list_all).keys()
 	saveTXT(list_all_disticted)
