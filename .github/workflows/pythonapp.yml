@@ -27,3 +27,4 @@ jobs:
     - name: Run python
       run: |
         python everyfilter.py
+        cat dump.filters
