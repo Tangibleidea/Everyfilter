@@ -140,7 +140,7 @@ def readSourceFromABPFilters(url):
         delimeter= line.find(',')
         option_marker= line.find('$')
         is_comment = line.startswith('!')
-        if delimeter != -1 and option_marker is -1 and not is_comment:   # if there is ',' + no '$'
+        if delimeter != -1 and option_marker == -1 and not is_comment:   # if there is ',' + no '$'
             multi_filters= line.split(',') # then split it by ','
             for line_mf in multi_filters:  # and loop to validate every filter
                 FilteredDomain = ValidateDomain(line_mf)
