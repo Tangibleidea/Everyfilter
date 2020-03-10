@@ -1,2 +1,2 @@
-tldextract
-pip install google-api-python-client
+tldextract==2.2.2
+google-api-python-client==1.7.11
