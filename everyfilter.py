@@ -203,8 +203,8 @@ def main():
     start_time = time.time()
     
     list_all.extend( AddSource("https://easylist-downloads.adblockplus.org/koreanlist+easylist.txt") )
-    list_all.extend( AddSource("https://docs.google.com/spreadsheets/d/18epO6j4tKn0fsh8zYUSWHO0u_7Q3eRF2K3DT-Z7Quhg") )
-    list_all.extend( AddSource("https://docs.google.com/spreadsheets/d/16XngdfajuFrCzi_fIUr6kyNiRRfVM_aVQfIKk38G4Oc") )
+    #list_all.extend( AddSource("https://docs.google.com/spreadsheets/d/18epO6j4tKn0fsh8zYUSWHO0u_7Q3eRF2K3DT-Z7Quhg") )
+    #list_all.extend( AddSource("https://docs.google.com/spreadsheets/d/16XngdfajuFrCzi_fIUr6kyNiRRfVM_aVQfIKk38G4Oc") )
             
     list_all_disticted = list(OrderedDict.fromkeys(list_all))
     saveTXT(list_all_disticted)
