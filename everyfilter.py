@@ -12,7 +12,6 @@ import sys
 import ssl
 import requests.api
 import re
-import validators
 import urllib3
 from urllib.request import urlopen
 import time
