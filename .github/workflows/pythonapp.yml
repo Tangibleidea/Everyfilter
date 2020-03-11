@@ -27,6 +27,8 @@ jobs:
     - name: Run python
       run: |
         python everyfilter.py
+        git config --global user.email "fantasysa@gmail.com"
+        git config --global user.name "Mark"
         git add dump.filters
         git commit -m "Update filters."
         git push
