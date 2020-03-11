@@ -27,4 +27,6 @@ jobs:
     - name: Run python
       run: |
         python everyfilter.py
-        cat dump.filters
+        git add dump.filters
+        git commit -m "Update filters."
+        git push
