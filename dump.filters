@@ -19956,11 +19956,13 @@ tethered-realms.valorbuff.com
 dw.com
 jwplatform.com
 wsj.net
+akamaihd.net (domain)
 api.fw.tv
 avantisvideo.com (third-party)
 c.jsrdn.com (domain)
 channelexco.com (third-party)
 connatix.com (third-party)
+delivery.vidible.tv
 embed.sendtonews.com (third-party)
 fwcdn1.com
 fwcdn2.com (third-party)
@@ -19972,9 +19974,11 @@ playbuzz.com (third-party)
 player.anyclip.com (third-party)
 player.avplayer.com (third-party)
 player.ex.co (third-party)
+player.sendtonews.com (third-party)
 players.brightcove.net (domain)
 playwire.com (third-party)
 rumble.com (domain)
+services.brid.tv (domain)
 sportrecs.com
 ultimedia.com (third-party)
 vidazoo.com (third-party)
@@ -21777,6 +21781,7 @@ salife.com.au
 sconeadvocate.com.au
 sify.com
 singletonargus.com.au
+smithsonianmag.com
 southcoastregister.com.au
 southernhighlandnews.com.au
 standard.net.au
@@ -21805,8 +21810,9 @@ wollondillyadvertiser.com.au
 woot.com
 yasstribune.com.au
 youngwitness.com.au
-000webhost.com,aarp.org,al-monitor.com,animax-asia.com,apkcombo.com,apkforpc.com,araratadvertiser.com.au,areanews.com.au,armidaleexpress.com.au,audioxpress.com,axn-asia.com,batemansbaypost.com.au,begadistrictnews.com.au,bendigoadvertiser.com.au,benfergusonshow.com,blayneychronicle.com.au,bluemountainsgazette.com.au,boorowanewsonline.com.au,bordermail.com.au,braidwoodtimes.com.au,bravotv.com,bunburymail.com.au,busseltonmail.com.au,camdenadvertiser.com.au,camdencourier.com.au,canowindranews.com.au,centralwesterndaily.com.au,cessnockadvertiser.com.au,cnbctv18.com,conservativeradio.com,controleng.com,cootamundraherald.com.au,cowraguardian.com.au,dailyadvertiser.com.au,dailyliberal.com.au,dungogchronicle.com.au,easternriverinachronicle.com.au,edenmagnet.com.au,esperanceexpress.com.au,examiner.com.au,fairfieldchampion.com.au,forbesadvocate.com.au,gemtvasia.com,gleninnesexaminer.com.au,gloucesteradvocate.com.au,goondiwindiargus.com.au,goulburnpost.com.au,greatlakesadvocate.com.au,grenfellrecord.com.au,hardenexpress.com.au,hawkesburygazette.com.au,hcn.org,hepburnadvocate.com.au,huffingtonpost.co.uk,huntervalleynews.net.au,inqld.com.au,inverelltimes.com.au,jewishworldreview.com,juneesoutherncross.com.au,katherinetimes.com.au,legion.org,lifezette.com,lithgowmercury.com.au,liverpoolchampion.com.au,macarthuradvertiser.com.au,macleayargus.com.au,magtheweekly.com,mailtimes.com.au,maitlandmercury.com.au,mandurahmail.com.au,manningrivertimes.com.au,margaretrivermail.com.au,martechadvisor.com,moreechampion.com.au,mudgeeguardian.com.au,murrayvalleystandard.com.au,muswellbrookchronicle.com.au,naroomanewsonline.com.au,narrominenewsonline.com.au,northerndailyleader.com.au,northweststar.com.au,nvi.com.au,oann.com,oberonreview.com.au,onetvasia.com,oxygen.com,parkeschampionpost.com.au,pch.com,portlincolntimes.com.au,portnews.com.au,portpirierecorder.com.au,portstephensexaminer.com.au,readamericanfootball.com,readarsenal.com,readastonvilla.com,readbasketball.com,readbetting.com,readbournemouth.com,readboxing.com,readbrighton.com,readbundesliga.com,readburnley.com,readcars.co,readceltic.com,readchampionship.com,readchelsea.com,readcricket.com,readcrystalpalace.com,readeverton.com,readeverything.co,readfashion.co,readfilm.co,readfood.co,readfootball.co,readgaming.co,readgolf.com,readhorseracing.com,readhuddersfield.com,readhull.com,readinternationalfootball.com,readlaliga.com,readleicester.com,readliverpoolfc.com,readmancity.com,readmanutd.com,readmiddlesbrough.com,readmma.com,readmotorsport.com,readmusic.co,readnewcastle.com,readnorwich.com,readnottinghamforest.com,readolympics.com,readpl.com,readrangers.com,readrugbyunion.com,readseriea.com,readshowbiz.co,readsouthampton.com,readsport.co,readstoke.com,readsunderland.com,readswansea.com,readtech.co,readtennis.co,readtottenham.com,readtv.co,readussoccer.com,readwatford.com,readwestbrom.com,readwestham.com,readwsl.com,salife.com.au,sconeadvocate.com.au,sify.com,singletonargus.com.au,southcoastregister.com.au,southernhighlandnews.com.au,standard.net.au,stawelltimes.com.au,stockandland.com.au,streamingmedia.com,tenterfieldstar.com.au,the-scientist.com,theadvocate.com.au,thecatholicthing.org,thecourier.com.au,thecurrent.org,theflindersnews.com.au,theislanderonline.com.au,theland.com.au,theleader.com.au,therural.com.au,townandcountrymagazine.com.au,transcontinental.com.au,ulladullatimes.com.au,victorharbortimes.com.au,wellingtontimes.com.au,westernadvocate.com.au,westernmagazine.com.au,whyallanewsonline.com.au,wollondillyadvertiser.com.au,woot.com,yasstribune.com.au,youngwitness.com.au
+000webhost.com,aarp.org,al-monitor.com,animax-asia.com,apkcombo.com,apkforpc.com,araratadvertiser.com.au,areanews.com.au,armidaleexpress.com.au,audioxpress.com,axn-asia.com,batemansbaypost.com.au,begadistrictnews.com.au,bendigoadvertiser.com.au,benfergusonshow.com,blayneychronicle.com.au,bluemountainsgazette.com.au,boorowanewsonline.com.au,bordermail.com.au,braidwoodtimes.com.au,bravotv.com,bunburymail.com.au,busseltonmail.com.au,camdenadvertiser.com.au,camdencourier.com.au,canowindranews.com.au,centralwesterndaily.com.au,cessnockadvertiser.com.au,cnbctv18.com,conservativeradio.com,controleng.com,cootamundraherald.com.au,cowraguardian.com.au,dailyadvertiser.com.au,dailyliberal.com.au,dungogchronicle.com.au,easternriverinachronicle.com.au,edenmagnet.com.au,esperanceexpress.com.au,examiner.com.au,fairfieldchampion.com.au,forbesadvocate.com.au,gemtvasia.com,gleninnesexaminer.com.au,gloucesteradvocate.com.au,goondiwindiargus.com.au,goulburnpost.com.au,greatlakesadvocate.com.au,grenfellrecord.com.au,hardenexpress.com.au,hawkesburygazette.com.au,hcn.org,hepburnadvocate.com.au,huffingtonpost.co.uk,huntervalleynews.net.au,inqld.com.au,inverelltimes.com.au,jewishworldreview.com,juneesoutherncross.com.au,katherinetimes.com.au,legion.org,lifezette.com,lithgowmercury.com.au,liverpoolchampion.com.au,macarthuradvertiser.com.au,macleayargus.com.au,magtheweekly.com,mailtimes.com.au,maitlandmercury.com.au,mandurahmail.com.au,manningrivertimes.com.au,margaretrivermail.com.au,martechadvisor.com,moreechampion.com.au,mudgeeguardian.com.au,murrayvalleystandard.com.au,muswellbrookchronicle.com.au,naroomanewsonline.com.au,narrominenewsonline.com.au,northerndailyleader.com.au,northweststar.com.au,nvi.com.au,oann.com,oberonreview.com.au,onetvasia.com,oxygen.com,parkeschampionpost.com.au,pch.com,portlincolntimes.com.au,portnews.com.au,portpirierecorder.com.au,portstephensexaminer.com.au,readamericanfootball.com,readarsenal.com,readastonvilla.com,readbasketball.com,readbetting.com,readbournemouth.com,readboxing.com,readbrighton.com,readbundesliga.com,readburnley.com,readcars.co,readceltic.com,readchampionship.com,readchelsea.com,readcricket.com,readcrystalpalace.com,readeverton.com,readeverything.co,readfashion.co,readfilm.co,readfood.co,readfootball.co,readgaming.co,readgolf.com,readhorseracing.com,readhuddersfield.com,readhull.com,readinternationalfootball.com,readlaliga.com,readleicester.com,readliverpoolfc.com,readmancity.com,readmanutd.com,readmiddlesbrough.com,readmma.com,readmotorsport.com,readmusic.co,readnewcastle.com,readnorwich.com,readnottinghamforest.com,readolympics.com,readpl.com,readrangers.com,readrugbyunion.com,readseriea.com,readshowbiz.co,readsouthampton.com,readsport.co,readstoke.com,readsunderland.com,readswansea.com,readtech.co,readtennis.co,readtottenham.com,readtv.co,readussoccer.com,readwatford.com,readwestbrom.com,readwestham.com,readwsl.com,salife.com.au,sconeadvocate.com.au,sify.com,singletonargus.com.au,smithsonianmag.com,southcoastregister.com.au,southernhighlandnews.com.au,standard.net.au,stawelltimes.com.au,stockandland.com.au,streamingmedia.com,tenterfieldstar.com.au,the-scientist.com,theadvocate.com.au,thecatholicthing.org,thecourier.com.au,thecurrent.org,theflindersnews.com.au,theislanderonline.com.au,theland.com.au,theleader.com.au,therural.com.au,townandcountrymagazine.com.au,transcontinental.com.au,ulladullatimes.com.au,victorharbortimes.com.au,wellingtontimes.com.au,westernadvocate.com.au,westernmagazine.com.au,whyallanewsonline.com.au,wollondillyadvertiser.com.au,woot.com,yasstribune.com.au,youngwitness.com.au
 structurae.net
+scmp.com
 afrsmartinvestor.com.au
 afternoondc.in
 allmovie.com
@@ -22280,6 +22286,8 @@ ctvnews.ca
 popsci.com
 kupondo.com
 whatsmyreferer.com
+huffpost.com
+huffingtonpost.co.uk,huffpost.com
 mobafire.com
 yourbittorrent.com
 thefinancialexpress-bd.com
@@ -22532,14 +22540,13 @@ arabiaweather.com
 news957.com
 newscientist.com
 arabiaweather.com,bloomberg.com,gamesindustry.biz,news957.com,newscientist.com
-huffpost.com
-huffingtonpost.co.uk,huffpost.com
 cbssports.com
 nowthisnews.com
 scout.com
+seeker.com
 thedodo.com
 thrillist.com
-cbssports.com,nowthisnews.com,scout.com,thedodo.com,thrillist.com
+cbssports.com,nowthisnews.com,scout.com,seeker.com,thedodo.com,thrillist.com
 bloomberg.com,weatherpro.com
 6abc.com
 abc11.com
@@ -22557,7 +22564,9 @@ rottentomatoes.com
 northernstar.info
 theprospectordaily.com
 northernstar.info,theprospectordaily.com
+mapquest.co.uk
 mapquest.com
+mapquest.co.uk,mapquest.com
 republicbroadcasting.org
 latestly.com
 op.gg
@@ -23052,7 +23061,8 @@ chronicle.co.zw
 fifplay.com
 herald.co.zw
 libhunt.com
-2b2t.online,caixinglobal.com,chicagobusiness.com,chronicle.co.zw,duckduckgo.com,fifplay.com,herald.co.zw,libhunt.com,motherjones.com,msn.com,timeslive.co.za
+reviewjournal.com
+2b2t.online,caixinglobal.com,chicagobusiness.com,chronicle.co.zw,duckduckgo.com,fifplay.com,herald.co.zw,libhunt.com,motherjones.com,msn.com,reviewjournal.com,timeslive.co.za
 audiforums.com
 jaguarforums.com
 pypi.org
@@ -23092,6 +23102,7 @@ note.nkmk.me
 golfmagic.com
 babylonbee.com
 sciencing.com
+sciencing.com,sportsnet.ca
 oilcity.news
 litecoin-faucet.com
 dailyherald.com
@@ -23140,7 +23151,9 @@ gadgetstouse.com
 tech-latest.com
 itproportal.com
 businessonhome.com
+sciencedaily.com
 evilbeetgossip.com
+steelersdepot.com
 coub.com
 aardvark.co.nz
 onlinecourse24.com
@@ -23176,6 +23189,7 @@ joebucsfan.com
 roadtests.com
 dnaindia.com
 drugs.com
+blabber.buzz
 collinsdictionary.com
 futurism.com
 todayonline.com
@@ -23412,6 +23426,7 @@ games.dailymail.co.uk
 timeout.com
 fodors.com
 barandbench.com
+reuters.com
 kijiji.ca
 goodrx.com
 constative.com
@@ -23685,6 +23700,7 @@ outlook.live.com
 cleantechnica.com
 wikiprocedure.com
 etsy.com
+gankrin.org
 mirrored.to
 mobile.twitter.com
 moonastro.com
@@ -24261,7 +24277,6 @@ dnsleak.privateinternetaccess.com (domain)
 docs.woopt.com (third-party)
 edmodo.com (third-party)
 einthusan.tv (third-party)
-embed.sendtonews.com (domain)
 entitlements.jwplayer.com (domain)
 experienceleague.adobe.com (third-party)
 experienceleague.corp.adobe.com (third-party)
@@ -24517,6 +24532,7 @@ kaitaro.jp
 kmsv.jp (third-party)
 koshien-live.net (domain)
 labymod.net (third-party)
+live.lequipe.fr (third-party)
 mail.bg
 massariuscdn.com (domain)
 mbank.cz (third-party)
